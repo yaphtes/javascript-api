@@ -1,5 +1,11 @@
 ## Руководство по JavaScript
-* `Number`
-* `String`
-* `Array`
-* `Object`
+* Свойства и методы прототипов
+	* `Number.prototype;`
+	* `String.prototype`
+	* `Array.prototype`
+
+
+* Статические методы
+	* Number
+	* String
+	* Array
