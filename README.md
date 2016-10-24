@@ -6,6 +6,6 @@
 
 
 * Статические методы
-	* Number
-	* String
-	* Array
+	* `Number`
+	* `String`
+	* `Array`
