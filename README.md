@@ -2,10 +2,14 @@
 * Свойства и методы прототипов
 	* `Number.prototype;`
 	* `String.prototype`
+	* `Object.prototype`
 	* `Array.prototype`
+	* `Function.prototype`
 
 
-* Статические методы
+* Статические свойства и методы
 	* `Number`
 	* `String`
+	* `Object`
 	* `Array`
+	* `Function`
