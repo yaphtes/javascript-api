@@ -65,9 +65,18 @@ Object.getOwnPropertyNames(obj: ?)  // => [string]
 // цепочку прототипов) переданного объекта
 Object.getOwnPropertyDescriptor(obj: ?, prop: string)  // => {}
 
-// Возвращает прототип (то есть, внутреннее
-// свойство [[Prototype]]) указанного объекта
+// Мктод Object.setPrototypeOf() возвращает внутреннее свойство
+// [[Prototype]] объекта obj. То есть: (obj.__proto__)
 Object.getPrototypeOf(obj: ?)  // => {}
+
+// Метод Object.setPrototypeOf() устанавливает прототип [[Prototype]] для объекта obj.
+// То есть: obj.__proto__ = prototype. Prototype в аргументе функции может быть null.
+Object.setPrototypeOf(obj: ?, prototype: ?)  // => {}
+
+// Метод Object.create() создаёт новый объект с
+// указанными объектом прототипа и свойствами.
+// Можно передать null.
+Object.create(proto: ?)  // => {}
 
 // Метод Object.preventExtensions() предотвращает
 // добавление новых свойств к объекту (то есть,

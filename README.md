@@ -13,3 +13,4 @@
 	* `Object`
 	* `Array`
 	* `Function`
+	* `Window`
