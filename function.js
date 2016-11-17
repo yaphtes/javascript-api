@@ -1,16 +1,3 @@
-function func(a, b) {  }
-
-// СВОЙСТВА ЭКЗЕМПЛЯРОВ ОБЪЕКТА Function
-
-// Возвращает имя функции
-func.name  // => string
-
-// Определяет количество аргументов,
-// ожидаемых функцией.
-func.length  // => number
-
-
-
 /*** <<< Function.prototype >>> ***/
 
 // Метод call() вызывает функцию с указанным
@@ -28,3 +15,10 @@ Function.prototype.apply(this: ?, args: [?])
 // переданными в привязанную функцию аргументами при её вызове.
 // Возвращает функцию-обертку
 Function.prototype.bind(this: ?, args?: ?)  // => {function}
+
+// Возвращает имя функции
+Function.prototype.name  // => string
+
+// Определяет количество аргументов,
+// ожидаемых функцией.
+Function.prototype.length  // => number
