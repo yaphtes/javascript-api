@@ -115,7 +115,7 @@ node.dataset  // => {}
 
 
 
-// Вложеннность
+// Проверка на вложенность
 node.contains(other: Node)
 node.compareDocumentPosition(other: Node)
 
@@ -124,9 +124,32 @@ node.compareDocumentPosition(other: Node)
 // Добавление и удаление узлов
 document.createElement(tagName: string)
 document.createTextNode(content: string)
+document.createDocumentFragment() // => DocumentFragment
 node.appendChild(newNode: Node)
 node.insertBefore(newElt: Element, before: Element)
 node.cloneNode(deep: bool)
 node.removeChild(oldNode: Node)
 node.replaceChild(newChild: Node, oldChild: Node)
 node.remove()
+node.insertAdjacentHTML(position: string, html: string)
+node.insertAdjacentElement(position: string, element: Node)
+node.insertAdjacentText(position: string, text: string)
+	// position = 'beforeBegint' || 'afterBegin' || 'beforeEnd' || 'afterEnd'
+node.append(...nodes)
+node.prepend(...nodes)
+node.after(...nodes)
+node.before(...nodes)
+node.replaceWith(...nodes)
+
+
+
+// Прочие методы
+document.write(html: string)
+document.writeln(html: string)
+
+
+
+// Стили
+node.style
+node.style.cssText
+window.getComputedStyle(node: Element, pseudo?: string)
