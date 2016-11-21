@@ -1,7 +1,7 @@
 ## Руководство по JavaScript
 #### Базовый JavaScript
 * Свойства и методы прототипов
-	* `Number.prototype;`
+	* `Number.prototype`
 	* `String.prototype`
 	* `Object.prototype`
 	* `Array.prototype`
@@ -19,19 +19,12 @@
 ##### Браузер
 * Свойства и методы прототипов
 	* `Node.prototype`
-	* `Element.prototype`
 
 
 * Статические свойства и методы
+	* `Node`
 	* `Window`
 	* `Document`
-	* `Node`
-		* `Element`
-			* `HTMLElement`
-			* `HTMLInputElement`
-			* `HTMLAnchorElement`
-			* `...`
-		* `SVGElement`
 
 ##### Node.js
 * `Скоро`
