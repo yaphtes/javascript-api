@@ -71,21 +71,35 @@ elem.parentElement
 elem.nextElementSibling/elem.previousElementSibling
 elem.children/elem.firstElementChild/elem.lastElementChild
 
+// << Дополнительные ссылки >>
 
-// Существую дополнительные ссылки на различные элемента,
-// например для таблиц:
+// TABLE
+	// Строка <tr> номер N
+	table.rows[N]
 
-// Строка <tr> номер N
-table.rows[N]
+	// Ссылки на элементы таблицы <caption>, <thead>, <tfoot>
+	table.caption/table.tHead/table.tFoot
 
-// Ячейка <th>/<td> номер N
-tr.cells[N]
+	// Коллекция элементов таблицы TBODY, по спецификации их может быть несколько.
+	table.tBodies
 
-// Номер строки в таблице в секции <thead>/<tbody>
-tr.sectionRowIndex
+// THEAD/TFOOT/TBODY
+	// Коллекция строк TR секции.
+	tbody.rows
 
-// Номер ячейки в строке
-td.cellIndex
+// TR
+	// Ячейка <th>/<td> номер N
+	tr.cells[N]
+
+	// Номер строки в таблице в секции <thead>/<tbody>
+	tr.sectionRowIndex
+
+	// Номер строки в таблице
+	tr.rowIndex
+
+// TD/TH
+	// Номер ячейки в строке
+	td.cellIndex
 
 
 
@@ -221,10 +235,39 @@ window.pageYOffset/window.pageYOffset
 // <<< КООРДИНАТЫ >>>
 
 // Относительно окна
+elem.getBoundingClientRect()
 elem.getClientRects()
 
-// Относительно документав
+// Относительно документа
 elem.getBoundingClientRect() + window.pageYOffset
 
 // Получить элемент по координатам
 document.elementFromPoint(x: number, y: number)
+
+
+
+// <<< СОБЫТИЯ >>>
+click
+contextmenu
+mouseover
+mousedown
+mousemove
+sumbint
+focus
+blur
+keydown
+keyup
+DOMContentLoaded
+transitionend
+
+elem.on* = function(event) { ... }
+elem.addEventListener(type: string, listener: fn(e: Event), capture: bool)
+elem.removeEventListener(type: string, listener: fn(), capture: bool)
+
+event.target
+event.clientX
+event.clientY
+event.stopPropagation()
+event.stopImmediatePropagation()
+event.preventDefault()
+event.eventPhase
