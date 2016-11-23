@@ -11,6 +11,7 @@ node.cloneNode(deep: bool)
 
 
 
+
 // <<< СВОЙСТВА УЗЛОВ >>>
 
 // Тип узла: 1(элемент)/3(текст)/другие
@@ -37,6 +38,7 @@ elem.hidden
 
 
 
+
 // <<< АТРИБУТЫ >>>
 
 // Чтение атрибута, проверка наличия и запись
@@ -44,6 +46,7 @@ elem.getAttribute(name: string), elem.hasAttribute(name: string), elem.setAttrib
 
 // Значения атрибутов вида data-*
 elem.dataset.*
+
 
 
 
@@ -70,6 +73,7 @@ node.childNodes/node.firstChild/node.lastChild
 elem.parentElement
 elem.nextElementSibling/elem.previousElementSibling
 elem.children/elem.firstElementChild/elem.lastElementChild
+
 
 // << Дополнительные ссылки >>
 
@@ -100,6 +104,7 @@ elem.children/elem.firstElementChild/elem.lastElementChild
 // TD/TH
 	// Номер ячейки в строке
 	td.cellIndex
+
 
 
 
@@ -142,6 +147,7 @@ elemA.compareDocumentPosition(elemB: Node)
 
 
 
+
 // <<< ИЗМЕНЕНИЕ >>>
 
 parent.appendChild(newNode: Node)
@@ -160,6 +166,7 @@ node.replaceWith(nodes: Node)
 
 
 
+
 // <<< КЛАССЫ И СТИЛИ >>>
 
 // Атрибут class
@@ -174,6 +181,7 @@ elem.style
 
 // Стиль, с учётом всего каскада, вычисленный и применённый (только чтение)
 window.getComputedStyle(node: Element, pseudo?: string)
+
 
 
 
@@ -206,6 +214,7 @@ elem.offsetWidth/elem.offsetHeight
 
 
 
+
 // <<< РАЗМЕРЫ И ПРОКРУТКА СТРАНИЦЫ >>>
 
 // Ширина/высота видимой области
@@ -218,7 +227,7 @@ document.documentElement.offsetWidth/document.documentElement.offsetHeight
 window.pageYOffset/window.pageYOffset
 
 
-{ // Прокрутка(изменение)
+{ // Прокрутка (изменение)
 
 	// На x,y относительно текущей позиции.
 	window.scrollBy(x: number, y: number)
@@ -247,6 +256,7 @@ document.elementFromPoint(x: number, y: number)
 
 
 // <<< СОБЫТИЯ >>>
+
 click
 contextmenu
 mouseover
@@ -260,7 +270,9 @@ keyup
 DOMContentLoaded
 transitionend
 
+// Назначить/удалить событие
 elem.on* = function(event) { ... }
+elem.on* = null;
 elem.addEventListener(type: string, listener: fn(e: Event), capture: bool)
 elem.removeEventListener(type: string, listener: fn(), capture: bool)
 
@@ -271,3 +283,32 @@ event.stopPropagation()
 event.stopImmediatePropagation()
 event.preventDefault()
 event.eventPhase
+
+
+// << Генерация событий >>
+
+// Создает объект события
+let event = new Event(type: string, flags?: object)
+	// flags = { bubbles: true/fals, cancelable: true/false }, по умолчанию: {bubbles: false, cancelable: false}
+
+// Инициализация события
+elem.dispatchEvent(event: Event)
+
+
+{ // < Дополнительные свойства >
+
+	// Если true, то нажатие реальное, а не сгенерировано скриптом
+	event.isTrusted
+
+	// null - это свойство ставится автоматически позже при dispatchEvent
+	event.target
+
+	// Тип события - первый аргумент new Event
+	event.type
+
+	// По второму аргументу new Event
+	event.bubbles/event.cancelable
+}
+
+// P.S.: Генерация событий - сложная тема, дополнительная
+// информация здесь: https://learn.javascript.ru/dispatch-events
