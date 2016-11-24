@@ -241,6 +241,7 @@ window.pageYOffset/window.pageYOffset
 
 
 
+
 // <<< КООРДИНАТЫ >>>
 
 // Относительно окна
@@ -252,6 +253,7 @@ elem.getBoundingClientRect() + window.pageYOffset
 
 // Получить элемент по координатам
 document.elementFromPoint(x: number, y: number)
+
 
 
 
@@ -276,14 +278,6 @@ elem.on* = null;
 elem.addEventListener(type: string, listener: fn(e: Event), capture: bool)
 elem.removeEventListener(type: string, listener: fn(), capture: bool)
 
-event.target
-event.clientX
-event.clientY
-event.stopPropagation()
-event.stopImmediatePropagation()
-event.preventDefault()
-event.eventPhase
-
 
 // << Генерация событий >>
 
@@ -294,21 +288,67 @@ let event = new Event(type: string, flags?: object)
 // Инициализация события
 elem.dispatchEvent(event: Event)
 
-
-{ // < Дополнительные свойства >
-
-	// Если true, то нажатие реальное, а не сгенерировано скриптом
-	event.isTrusted
-
-	// null - это свойство ставится автоматически позже при dispatchEvent
-	event.target
-
-	// Тип события - первый аргумент new Event
-	event.type
-
-	// По второму аргументу new Event
-	event.bubbles/event.cancelable
-}
-
 // P.S.: Генерация событий - сложная тема, дополнительная
 // информация здесь: https://learn.javascript.ru/dispatch-events
+
+
+
+
+// <<< СОБЫТИЯ В ДЕТАЛЯХ >>>
+
+{ // Свойства и методы объекта event
+	event.which
+	event.shiftKey
+	event.altKey
+	event.ctrlKey
+	event.metaKey
+	event.clientX
+	event.clientY
+	event.pageX
+	event.pageY
+
+	event.target
+	event.stopPropagation()
+	event.stopImmediatePropagation()
+	event.preventDefault()
+	event.eventPhase
+	{ // В сгенерированных событиях полезно
+		// Если true, то нажатие реальное, а не сгенерировано скриптом
+		event.isTrusted
+
+		// null - это свойство ставится автоматически позже при dispatchEvent
+		event.target
+
+		// Тип события - первый аргумент new Event
+		event.type
+
+		// По второму аргументу new Event
+		event.bubbles/event.cancelable
+	}
+
+	// Специфичные свойства, принадлежащие только определенным событиям
+	{ // mouseover/out, mouseenter/leave
+		// Откуда пришла, куда ушла мышь
+		event.relatedTarget
+	}
+}
+
+
+{ // Мышь
+	// простые
+	mousedown
+	mousedown
+	mouseover/out
+	mouseenter/leave
+	mousemove
+
+	// комплексные
+	click
+	contextmenu
+	dbclick
+}
+
+
+{ // Разное
+	copy
+}
