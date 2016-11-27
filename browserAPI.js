@@ -20,6 +20,9 @@ node.nodeType
 // Тег элемента
 elem.tagName
 
+// Название узла
+elem.nodeName
+
 // HTML внутри элемента
 elem.innerHTML
 
@@ -157,7 +160,7 @@ elemA.compareDocumentPosition(elemB: Node)
 parent.appendChild(newNode: Node)
 parent.removeChild(oldNode: Node)
 parent.insertBefore(newElt: Element, before: Element)
-parent.insertAdjacentHTML(position: string, text: string)
+parent.insertAdjacentHTML(position: string, html: string)
 parent.insertAdjacentElement(position: string, element: Node)
 parent.insertAdjacentText(position: string, text: string)
 	// position = "beforeBegin || afterBegin || beforeEnd || afterEnd"
@@ -263,19 +266,6 @@ document.elementFromPoint(x: number, y: number)
 
 // <<< СОБЫТИЯ >>>
 
-click
-contextmenu
-mouseover
-mousedown
-mousemove
-sumbint
-focus
-blur
-keydown
-keyup
-DOMContentLoaded
-transitionend
-
 // Назначить/удалить событие
 elem.on* = function(event) { ... }
 elem.on* = null;
@@ -357,8 +347,6 @@ elem.dispatchEvent(event: Event)
 	mouseup
 	mousedown
 
-
-
 	// комплексные
 	click
 	contextmenu
@@ -381,14 +369,66 @@ elem.dispatchEvent(event: Event)
 
 { // Загрузки
 	DOMContentLoaded // можно повесить только через метод addEventListener()
-	load // можно повесить ка на window, так и на elem
+	load // можно повесить как на window, так и на elem
 	beforeunload
 	unload
-	error // на iframe не ставится
+	error // можно повесить как на window, так и на elem, но на iframe не ставится
 }
 
 { // Разное
-	dragstart // браузерный "HTML5" DnD, для отмены действий "по-умолчанию"
-	copy
+	dragstart // браузерный (HTML5) DnD, обычно используется для отмены действий браузера "по-умолчанию"
 	scroll
+	copy
+	paste
+	transitionend
+}
+
+{ // Элементы, формы
+	focus
+	blur
+	submit
+
+	// Всплывающие аналоги для focus и blur, можно назначить только через addEventListener(), firefox не поддерживает
+	focusin
+	focusout
+}
+
+
+
+
+// <<< ФОРМЫ, ЭЛЕМЕНТЫ УПРАВЛЕНИЯ >>>
+// * Важные состояния для форм - focus и blur, но не все элементы поддерживают focus,
+// для поддержки любыми элементами, нужно использовать HTML-атрибут tabindex=""
+// * События focus и blur не всплывают, но их можно лавить на стадии погружения с помощью addEventListener()
+
+
+{ // Навигация и свойства элементов формы
+
+	// текущий элемент, на котором фокус
+	document.activeElement
+
+	// получить элементы <form> документа по имени или индексу
+	document.forms[name/index]
+
+	// получение потомков элемента <form>
+	form.elements[name/index] // если есть элементы с одинаковыми именами, то возвращается коллекция
+
+	// ссылка на родительский <form>
+	elem.form
+
+	// чтение/запись элементов
+	input.checked
+	input.value
+
+	// работа с <select>
+	option.selected = true/false | select.selectedIndex = index/-1 // управление выбором опции
+	select.options
+	option.index
+	option.text
+	option.value
+}
+
+{ // Методы форм и элементов
+	input.focus()
+	input.blur()
 }
