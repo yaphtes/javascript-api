@@ -47,6 +47,10 @@ elem.getAttribute(name: string), elem.hasAttribute(name: string), elem.setAttrib
 // Значения атрибутов вида data-*
 elem.dataset.*
 
+// Получить все атрибуты элменета
+elem.attributes
+
+// P.S. многие имена свойств объекта узла совпадают с названием атрибутов в html, но не все, например className
 
 
 
@@ -331,24 +335,60 @@ elem.dispatchEvent(event: Event)
 		// Откуда пришла, куда ушла мышь
 		event.relatedTarget
 	}
+	{ // wheel
+		// Количество прокрученных пикселей за одни раз по осям
+		event.deltaY
+		event.deltaX
+		event.daltaZ
+	}
+	{ // keyup/keydown/keypress
+		event.keyCode  // deprecated
+		event.altKey
+		event.ctrlKey
+		event.metaKey
+		event.shiftKey
+		event.key
+	}
 }
 
 
 { // Мышь
 	// простые
+	mouseup
 	mousedown
-	mousedown
-	mouseover/out
-	mouseenter/leave
-	mousemove
+
+
 
 	// комплексные
 	click
 	contextmenu
 	dbclick
+	mouseover/out
+	mouseenter/leave
+	mousemove
+	wheel
+
 }
 
+{ // Клавиатура
+	// простые
+	keydown
+	keyup
+
+	// комлпексные
+	keypress
+}
+
+{ // Загрузки
+	DOMContentLoaded // можно повесить только через метод addEventListener()
+	load // можно повесить ка на window, так и на elem
+	beforeunload
+	unload
+	error // на iframe не ставится
+}
 
 { // Разное
+	dragstart // браузерный "HTML5" DnD, для отмены действий "по-умолчанию"
 	copy
+	scroll
 }
