@@ -378,19 +378,28 @@ elem.dispatchEvent(event: Event)
 { // Разное
 	dragstart // браузерный (HTML5) DnD, обычно используется для отмены действий браузера "по-умолчанию"
 	scroll
-	copy
-	paste
 	transitionend
 }
 
-{ // Элементы, формы
+{ // Формы, элементы(с tabindex)
 	focus
 	blur
+	submit
+	change
+	input
 	submit
 
 	// Всплывающие аналоги для focus и blur, можно назначить только через addEventListener(), firefox не поддерживает
 	focusin
 	focusout
+
+	{ // Изменение данных
+		change
+		input
+		cut
+		copy
+		paste
+	}
 }
 
 
@@ -431,4 +440,5 @@ elem.dispatchEvent(event: Event)
 { // Методы форм и элементов
 	input.focus()
 	input.blur()
+	form.submit()
 }
