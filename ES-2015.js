@@ -25,7 +25,7 @@ Number.isFinite(testValue: ?)
 Number.isInteger(testValue: ?)
 
 
-
+// обработано
 String.fromCodePoint(point: number, point?: number)
 String.codePointAt(pos: number)
 String.normalize(form: string)
@@ -36,7 +36,7 @@ String.prototype.endsWith(searchString: string, position?: number)
 String.prototype.repeat(count: number)
 
 
-
+// обработано
 Function.prototype.name
 new.target
 

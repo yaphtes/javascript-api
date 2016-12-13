@@ -1,26 +1,28 @@
 // Свойства экземпляров объекта String
 
-// Возвращает длину строки
-str.length  // => number
+// Длина строки
+str.length // => number
 
 
 /*** <<< String.prototype >>> ***/
 
-{	// Поиск и замена
+{ // Поиск и замена
 
 	// Возвращают указанный символ из строки
-	String.prototype.charAt(i: number)  // => string
-	str[i: number]  // => string
+	String.prototype.charAt(i: number) // => string
+	str[i: number] // => string
 
-	// Возвращает индекс первого вхождения char в str, начиная с from,
-	// если значение не найдено, возвращает -1
-	String.prototype.indexOf(char: string, from?: number)  // => number
+	// Возвращает индекс первого вхождения подстроки или -1
+	String.prototype.indexOf(char: string, from ? : number) // => number
+
+	// Проверяет, находится ли одна строка внутри другой
+	String.prototype.includes(searchString: string, position ? : number) // => bool
 
 	// Проверяет начинается ли строка с символов другой строки
-	String.prototype.startsWith(searchString: string, position?: number)  // => bool
+	String.prototype.startsWith(searchString: string, position ? : number) // => bool
 
 	// Проверяет заканчивается ли строка на символы другой строки
-	String.prototype.endsWith(searchString: string, position?: number)  // => bool
+	String.prototype.endsWith(searchString: string, position ? : number) // => bool
 
 	// Метод match() возвращает получившиеся
 	// совпадения при сопоставлении строки с регулярным выражением
@@ -28,81 +30,102 @@ str.length  // => number
 
 	// Метод replace() возвращает новую строку с некоторыми или всеми сопоставлениями
 	// с шаблоном, заменёнными на заменитель. Шаблон может быть строкой или регулярным
-	// выражением, а заменитель может быть строкой или функцией, вызываемой при каждом сопоставлении
-	String.prototype.replace(pattern: string|RegExp, replacement: string)  // => string
+	// выражением, а заменитель может быть строкой или функцией, вызываемой при каждом сопоставлении.
+	// Если pattern = строка, то заменяет только первое совпадение.
+	String.prototype.replace(pattern: string | RegExp, replacement: string) // => string
 
 	// Выполняет поиск подстроки по заданному шаблону
-	String.prototype.search(pattern: RegExp)  // => number
+	String.prototype.search(pattern: RegExp) // => number
 }
 
 
-{	// Взятие подстроки
+{ // Взятие подстроки
 
-	// Возвращает length количество символов, начиная с позиции from
-	String.prototype.substr(from: number, length?: number)  // => number
+	// Возвращает length символов, начиная с позиции from
+	String.prototype.substr(from: number, length ? : number) // => number
 
 	// Возвращает подстроку между двумя индексами,
 	// или от одного индекса и до конца строки
-	String.prototype.substring(from: number, to?: number)  // => number
+	String.prototype.substring(from: number, to ? : number) // => number
 
 	// Возвращает подстроку между двумя индексами,
 	// или от одного индекса и до конца строки.
 	// В отличии от str.substring(), умеет обрабатывать отрица-
 	// тельные аргументы
-	String.prototype.slice(from: number, to?: number)  // => number
+	String.prototype.slice(from: number, to ? : number) // => number
 }
 
 
-{	// Изменение строки
+{ // Изменение строки
 
-	// Метод concat() объединяет текст из двух или более строк и возвращает новую строку.
-	String.prototype.concat(other: string)  // => string
+	// Конкатинирует строки, возвращает результат
+	String.prototype.concat(other: string) // => string
 
-	// Метод trim() удаляет пробельные символы с начала и конца строки. Пробельными символами
-	// в этом контексте считаются все собственно пробельные символы (пробел, табуляция, неразрывный
-	// пробел и прочие) и все символы конца строки (LF, CR и прочие).
-	String.prototype.trim()  // => string
+	// Удаляет пробельные символы с начала и конца строки.
+	String.prototype.trim() // => string
 
-	// Метод repeat() конструирует и возвращает новую строку, содержащую
-	// указанное количество соединённых вместе копий строки, на которой он был вызван
-	String.prototype.repeat(count: number)  // => string
+	// Конструирует и возвращает новую строку, содержащую
+	// указанное количество соединённых вместе копий строки
+	String.prototype.repeat(count: number) // => string
 
 	// Методы смены регистра
-	String.prototype.toLocaleLowerCase()  // => string
-	String.prototype.toLocaleUpperCase()  // => string
-	String.prototype.toUpperCase()  // => string
-	String.prototype.toLowerCase()  // => string
+	String.prototype.toLowerCase() // => string
+	String.prototype.toUpperCase() // => string
+	String.prototype.toLocaleLowerCase() // => string
+	String.prototype.toLocaleUpperCase() // => string
 }
 
 
-{	// Прочие полезные методы
+{ // Прочие полезные методы
 
 	// Метод localeCompare() возвращает число, указывающее, должна ли
 	// данная строка находится до, после или в том же самом месте, что и
 	// строка, переданная через параметр, при сортировке этих строк.
 	// Возвращает: -1 если str < other; 0 если str == other; 1 если str > other
-	String.prototype.localeCompare(other: string)  // => number
+	String.prototype.localeCompare(other: string) // => number
 
-	// Разбивает объект str на массив строк путём разделения строки указанным шаблоном.
-	String.prototype.split(pattern?: string|RegExp, limit?: number)  // => [string]
+	// Разбивает строку на массив строк путём разделения строки указанным шаблоном
+	String.prototype.split(pattern ? : string | RegExp, limit ? : number) // => [string]
 }
 
 
-{	// Работа с unicode и utf
+{ // Работа с unicode и utf
 
-	// Статический метод String.fromCharCode() возвращает строку,
-	// созданную из указанной последовательности значений Юникода.
-	String.fromCharCode(code: number)  // => string
+	// Возвращает форму нормализации Юникода данной строки
+	String.prototype.normalize(form: string) // => string
 
-	// Статический метод String.fromCodePoint() возвращает
-	// строку, созданную из указанной последовательности кодовых точек
-	String.fromCodePoint(point: number, point?: number)  // => string
+	// Возвращает строку, созданную из указанной последовательности значений Юникода (unicode)
+	String.fromCharCode(code: number) // => string
 
-	// Метод charCodeAt() возвращает числовое значение Юникода
-	// для символа по указанному индексу
-	String.prototype.charCodeAt(i: number)  // => number (unicode)
+	// Возвращает строку, созданную из указанной последовательности кодовых точек (utf-16)
+	String.fromCodePoint(point: number, point ? : number) // => string
 
-	// Метод codePointAt() возвращает неотрицательно
-	// целое число, являющееся закодированным в UTF-16 значением кодовой точки.
-	String.prototype.codePointAt(pos: number)  // => number (utf-16)
+	// Возвращает числовое значение Юникода для символа по указанному индексу
+	String.prototype.charCodeAt(i: number) // => number (unicode)
+
+	// Возвращает неотрицательно целое число, являющееся закодированным в UTF-16 значением кодовой точки
+	String.prototype.codePointAt(pos: number) // => number (utf-16)
 }
+
+{ // Шаблонные строки
+
+	// ...
+	String.raw(template: [string], substitutions: ? , templateString : ? )
+}
+
+
+// escape-последовательности
+// Код       Вывод
+//
+// \0        нулевой символ (символ NUL)
+// \'        одинарная кавычка
+// \"        двойная кавычка
+// \\        обратный слэш
+// \n        новая строка
+// \r        возврат каретки
+// \v        вертикальная табуляция
+// \t        табуляция
+// \b        забой
+// \f        подача страницы
+// \uXXXX    кодовая точка Юникода
+// \xXX      символ из кодировки Latin-1
