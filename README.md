@@ -19,10 +19,10 @@
 ##### Браузер
 * Свойства и методы прототипов
 	* `Node.prototype`
+	* `Element.prototype`
 
 
 * Статические свойства и методы
-	* `Node`
 	* `Window`
 	* `Document`
 
