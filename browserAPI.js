@@ -375,12 +375,6 @@ elem.dispatchEvent(event: Event)
 	error // можно повесить как на window, так и на elem, но на iframe не ставится
 }
 
-{ // Разное
-	dragstart // браузерный (HTML5) DnD, обычно используется для отмены действий браузера "по-умолчанию"
-	scroll
-	transitionend
-}
-
 { // Формы, элементы(с tabindex)
 	focus
 	blur
@@ -401,6 +395,18 @@ elem.dispatchEvent(event: Event)
 		paste
 	}
 }
+
+{ // ajax && comet
+	readystatechange
+}
+
+{ // Разное
+	dragstart // браузерный (HTML5) DnD, обычно используется для отмены действий браузера "по-умолчанию"
+	scroll
+	transitionend
+}
+
+
 
 
 
