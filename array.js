@@ -38,6 +38,10 @@ arr.length  // => number
 // Разбивает str на массив строк путём разделения строки указанным шаблоном
 String.prototype.split(pattern?: string|RegExp, limit?: number)  // => [string]
 
+// Определяет, содержит ли массив определенный элемент, возвращая
+// в зависимости от этого true или false
+Array.prototype.includes(searchElement: ?, fromIndex?: number);
+
 // Метод join() объединяет все элементы массива в строку.
 Array.prototype.join(separator?: string)  // => string
 
@@ -61,6 +65,10 @@ Array.prototype.concat(other: [?])  // => [?]
 // Возвращает первый индекс, по которому данный элемент
 // может быть найден в массиве или -1, если такого индекса нет
 Array.prototype.indexOf(elt: ?, from?: number)  // => number
+
+// Возаращает ссылку на значение в массиве, если элемент
+// удовлетворяет условию проверяющей функции
+Array.prototype.find(test: fn(elt: ?, i: nubmer, array: Array), context?: ?) // ?
 
 // Возвращает последний индекс, по которому данный элемен
 // может быть найден в массиве или -1, если такого индекса нет

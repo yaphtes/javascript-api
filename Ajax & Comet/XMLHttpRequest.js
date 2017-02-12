@@ -4,7 +4,10 @@ let xhr = new XMLHttpRequest();
 // События
 readystatechange // событие, происходящее несколько раз в процессе ajax-запроса, каждый раз надо проверять xhr.readyState
 loadstart // запрос начат
-progress // браузер получил очередной пакет данных, можно прочитать текущие полученные данные в xhr.responseText
+progress // браузер получил очередной пакет данных, можно прочитать текущие полученные данные в xhr.responseText {
+	event.loaded  // сколько скачано байт
+	event.total  // общий размер скачиваемых данных
+// }
 abort // запрос был отменен вызовом xhr.abort()
 error // произошла ошибка
 load // запрос был успешно (без ошибок) завершен
@@ -52,12 +55,13 @@ xhr.timeout // => number
 
 
 
-// Шаблон типичного запроса
+// Шаблон типичного запроса (предварительно нужно позаботиться о наполнении data)
 var xhr = new XMLHttpRequest();
 
 xhr.open('GET', '/my/url', true);
-
-xhr.send();
+xhr.setRequestHeader('Content-Type', 'x-www-form-urlencoded');
+xhr.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
+xhr.send(data);
 
 xhr.onreadystatechange = function() {
 	if (this.readyState != 4) return;

@@ -31,7 +31,7 @@
 {  // Поиск и замена
 
 	//Замена на другую строку или результат функции
-	str.replace(reg, str|func)
+	str.replace(pattern?: string|RegExp, replacement: str|func)
 }
 
 

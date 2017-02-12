@@ -14,6 +14,9 @@ node.cloneNode(deep: bool)
 
 // <<< СВОЙСТВА УЗЛОВ >>>
 
+// возможность редактирования содержимого страници
+document.designMode = 'on'|'off'
+
 // Тип узла: 1(элемент)/3(текст)/другие
 node.nodeType
 
@@ -29,6 +32,9 @@ elem.innerHTML
 // Весь HTML элемента, включая сам тег. На запись использовать с осторожностью, так как не
 // модифицирует элемент, а вставляет новый вместо него
 elem.outerHTML
+
+// Если поставить true, то можно будет редактировать текст элемента
+elem.contentEditable
 
 //Содержимое любого узла, кроме элемента
 node.data/node.nodeValue
@@ -57,6 +63,7 @@ elem.attributes
 
 
 
+
 // <<< ССЫЛКИ >>>
 
 // Есть ли дочерние узлы
@@ -70,6 +77,12 @@ document.body
 
 // Элемент <head>
 document.head
+
+// Ссылки
+document.links
+
+// Изображения
+document.images
 
 // По всем узлам:
 node.parentNode
@@ -427,6 +440,9 @@ elem.dispatchEvent(event: Event)
 
 	// получение потомков элемента <form>
 	form.elements[name/index] // если есть элементы с одинаковыми именами, то возвращается коллекция
+
+	// FileList, где myFile - <input type="file" name="myFile">
+	form.myFile.files
 
 	// ссылка на родительский <form>
 	elem.form
