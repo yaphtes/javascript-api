@@ -70,6 +70,10 @@ Array.prototype.indexOf(elt: ?, from?: number)  // => number
 // удовлетворяет условию проверяющей функции
 Array.prototype.find(test: fn(elt: ?, i: nubmer, array: Array), context?: ?) // ?
 
+// Возвращает индекс в массиве, если элемент удовлетворяет условию
+// проверяющей функции. В противном случае возвращается -1.
+Array.prototype.findIndex(callback: fn(element: ?, index: number, array: [?]), thisArg?: ?)  // => number
+
 // Возвращает последний индекс, по которому данный элемен
 // может быть найден в массиве или -1, если такого индекса нет
 Array.prototype.lastIndexOf(elt: ?, from?: number)  // => number

@@ -461,6 +461,7 @@ elem.dispatchEvent(event: Event)
 
 { // Методы форм и элементов
 	input.focus()
+	input.select()
 	input.blur()
 	form.submit()
 }

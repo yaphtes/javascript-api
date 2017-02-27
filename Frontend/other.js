@@ -16,19 +16,34 @@
 	// Отменяет ранее заданный таймер. Принимает идентификатор
 	window.clearInterval(interval: number)  // => undefined
 
-	// Кодирование url, аргумент должен быть типом application/x-www-form-urlencoded
+	// Кодирование url
 	window.encodeURI(uri: string)  // => string
 	window.encodeURIComponent(uri: string)  // => string
 
+    // Декодирование url
 	window.decodeURI(uri: string)
 	window.decodeURIComponent(uri: string)
 
 
 	{  // window.navigator
 
-		navigator.cookieEnabled
-		navigator.platform
-		navigator.language
+        // проверяет включены ли куки
+		navigator.cookieEnabled  // => boolean
+
+        // сколько ядер используется
+        navigator.hardwareConcurrency  // => number
+
+        // платформа, напр. linux
+		navigator.platform  // => string
+
+        // используемый язык
+		navigator.language  // => string
+
+        // доступные языки
+        navigator.languages  // = > [string]
+
+        // проверяет наличие сети
+        navigator.onLine  // => boolean
 	}
 
 	{  // document.cookie атрибуты
