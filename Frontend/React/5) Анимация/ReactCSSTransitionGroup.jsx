@@ -1,5 +1,6 @@
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 
+// Шаблон
 <ReactCSSTransitionGroup
     component="section"
     className="todo-list"

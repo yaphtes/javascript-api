@@ -37,7 +37,7 @@ module.exports = {
     },
 
     // сервер не создает файл bundle.js, он держит сборку в ОЗУ,
-    // следовательно записывает ее на ПЗУ, если нужен bundle.js,
+    // следовательно не записывает ее на ПЗУ, если нужен bundle.js,
     // то нужно будет запустить сборку отдельно
     devServer: {
         // Путь до контента, будет доступен по http://localhost/
@@ -65,3 +65,69 @@ module.exports = {
 
 // Использование webpack в качестве промежуточног ПО, для Express
 // https://webpack.js.org/guides/development/#webpack-dev-middleware
+
+
+// Новый шаблон
+const { resolve } = require('path');
+const webpack = require('webpack');
+
+
+module.exports = {
+    entry: [
+        'react-hot-loader/patch',
+        'webpack-dev-server/client?http://localhost:8080',
+        'webpack/hot/only-dev-server',
+        './index.jsx'
+    ],
+    output: {
+        filename: 'bundle.js',
+        path: resolve(__dirname, 'dist'),
+        publicPath: '/'
+    },
+
+    context: resolve(__dirname, 'src'),
+
+    devtool: 'inline-source-map',
+
+    devServer: {
+        hot: true,
+        contentBase: resolve(__dirname, 'dist'),
+        publicPath: '/',
+        historyApiFallback: true,
+        proxy: {
+            "/api": {
+                target: "http://localhost:3000",
+                pathRewrite: {"^/api": ""}
+            }
+        }
+    },
+
+    module: {
+        rules: [
+            {
+                test: /\.(js|jsx)$/,
+                use: [
+                    'babel-loader',
+                ],
+                exclude: /node_modules/
+            },
+            {
+                test: /\.styl$/,
+                use: [
+                    'style-loader',
+                    'css-loader',
+                    'stylus-loader'
+                ],
+            },
+        ],
+    },
+
+    plugins: [
+        new webpack.HotModuleReplacementPlugin(),
+        new webpack.NamedModulesPlugin(),
+    ],
+
+    resolve: {
+        extensions: ['.js', '.json', '.jsx', '.styl'],
+    },
+};

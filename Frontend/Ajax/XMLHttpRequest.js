@@ -54,12 +54,14 @@ xhr.timeout // => number
 
 
 
+// Полезные заголовки
+xhr.setRequestHeader('Content-Type', 'x-www-form-urlencoded');
+xhr.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
+
 
 // Шаблон типичного запроса (предварительно нужно позаботиться о наполнении data)
 var xhr = new XMLHttpRequest();
 
-xhr.open('GET', '/my/url', true);
-xhr.setRequestHeader('Content-Type', 'x-www-form-urlencoded');
 xhr.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
 xhr.send(data);
 
