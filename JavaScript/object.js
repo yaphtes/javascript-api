@@ -65,7 +65,7 @@ Object.getOwnPropertyNames(obj: ?)  // => [string]
 // цепочку прототипов) переданного объекта
 Object.getOwnPropertyDescriptor(obj: ?, prop: string)  // => {}
 
-// Мктод Object.setPrototypeOf() возвращает внутреннее свойство
+// Мктод Object.getPrototypeOf() возвращает внутреннее свойство
 // [[Prototype]] объекта obj. То есть: (obj.__proto__)
 Object.getPrototypeOf(obj: ?)  // => {}
 
@@ -112,6 +112,16 @@ Object.isSealed(obj: ?)  // => boolean
 // был ли объект заморожен.
 Object.isFrozen(obj: ?)  // => boolean
 
+// Проверяет, являются ли два значения "абсолютно" одинаковыми значениями
+Object.is(value1: ?, value2: ?)  // => boolean
+
+// Используется для копирования значений всех собственных перечисляемых
+// свойств из одного или более исходных объектов в целевой объект. После
+// копирования он возвращает целевой объект.
+Object.assign(target: ?, source: ?, source ?: ?)  // => object
+
+// Возвращает массив всех символьных свойств
+Object.getOwnPropertySymbols(obj: ?)  // => [Symbol]
 
 
 

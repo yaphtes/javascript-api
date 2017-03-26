@@ -14,6 +14,13 @@ Number.prototype.toLocaleString() // => string
 
 
 
+/*** <<< СТАТИЧЕСКИЕ СВОЙСТВА >>> ***/
+Number.EPSILON
+Number.MAX_SAFE_INTEGER
+Number.MIN_SAFE_INTEGER
+
+
+
 /*** <<< СТАТИЧЕСКИЕ ФУНКЦИИ >>> ***/
 Number.isFinite(testValue: ?)
 Number.isInteger(testValue: ?)
@@ -21,6 +28,7 @@ Number.isNaN(testValue: ?)
 Number.isSafeInteger(testValue: ?)
 Number.parseFloat(string: string)
 Number.parseInt(string: string, radix?: number)
+
 
 
 /*** <<< ГЛОБАЛЬНЫЕ ФУНКЦИИ >>> ***/
