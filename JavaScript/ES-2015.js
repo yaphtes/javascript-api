@@ -46,10 +46,3 @@ Symbol(description?: string)
 Symbol.for(key: string)
 Symbol.keyFor(symbol: symbol)
 Symbol.iterator
-
-
-
-Map(iterable?: [?])
-Set(iterable?: [?])
-WeakMap(iterable?: [?])
-WeakSet(iterable?: [?])
