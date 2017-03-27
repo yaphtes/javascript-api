@@ -53,9 +53,59 @@ component.displayName
 
 
 
-// <<< Lifecycle component >>>
+// <<< ЖИЗНЕННЫЙ ЦИКЛ КОМПОНЕНТА >>>
+// TODO: протестировать эти методы до мельчайших деталей!!! (узнать, когда вызывается component.render(), а когда нет)
 
-// TODO: добавить и описать эти методы
+// Создание компонента:
+{
+    // Первым срабатывает constructor
+    constructor()
+    
+    // Перед вызовом render()
+    // this.setState() не вызовет render()
+    // не рекомендуется к использованию https://facebook.github.io/react/docs/react-component.html#componentwillmount
+    componentWillMount()
+
+    // После вызова render
+    // this.setState() вызовет render()
+    // Хорошее место для сетевых запросов
+    componentDidMount()
+}
+
+// Обновление компонента:
+{
+    // Перед получением nextProps
+    // Не срабатывает при первом выводе компонента в DOM
+    // Отличное место для this.setState()
+    componentWillReceiveProps(nextProps)
+    
+    // Перед получением nextProps или nextState
+    // Если вернет true, компонет отрендерится (поведение по-умолчанию)
+    // Не срабатывает при первом выводе компонента в DOM
+    // Не срабатывает при вызове component.forceUpdate()
+    // Если вернет false, то componentWillUpdate() и componentDidUpdate() не будут вызваны
+    shouldComponentUpdate(nextProps, nextState)  // => bool
+    
+    // Перед получением nextProps или nextState
+    // Не срабатывает при первом выводе компонента в DOM
+    // Вызов this.setState() в данном месте игнорируется
+    // Не вызывается, если shouldComponentUpdate() вернул false
+    componentWillUpdate(nextProps, nextState)
+    
+    // Сразу после обновления
+    // Не срабатывает при первом выводе компонента в DOM
+    // Хорошее место для сетевых запросов
+    // Не вызывается, если shouldComponentUpdate() вернул false
+    componentDidUpdate(prevProps, prevState)
+}
+
+// Удаление компонента:
+{
+    // Перед уничтожением компонента
+    // Здесь должна быть очистка таймеров, сетевых запросов
+    // !!! Также важно очистить DOM-элементы, которые были созданы в componentDidMount()
+    componentWillUnmount()
+}
 
 
 
