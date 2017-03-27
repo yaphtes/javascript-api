@@ -28,6 +28,15 @@ class Component extends React.Component {
     }
 }
 
+// Свойства переданные компоненту, в component.props.children лежат дочерние узлы
+component.props
+
+// Ссылки на DOM-узлы. Берутся по значениям указанным в атрибуте ref какого-либо узла
+component.refs
+
+// Состояние компонента
+component.state
+
 // Две формы установки состояния. Вызов setState() всегда приводит к соответствующему
 // вызову render(), при условии, что shouldComponentUpdate() не возвращает false
 component.setState(nextState, callback)
