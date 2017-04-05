@@ -368,7 +368,6 @@ elem.dispatchEvent(event: Event)
 	mouseenter/leave
 	mousemove
 	wheel
-
 }
 
 { // Клавиатура
