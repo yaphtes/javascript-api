@@ -14,7 +14,7 @@ function Component(props) {
 class Component extends React.Component {
     constructor(props) {
         super(props);
-        
+
         // Начальное состояние
         this.state = {
             todos: this.props.todos
@@ -54,13 +54,12 @@ component.displayName
 
 
 // <<< ЖИЗНЕННЫЙ ЦИКЛ КОМПОНЕНТА >>>
-// TODO: протестировать эти методы до мельчайших деталей!!! (узнать, когда вызывается component.render(), а когда нет)
 
 // Создание компонента:
 {
     // Первым срабатывает constructor
     constructor()
-    
+
     // Перед вызовом render()
     // this.setState() не вызовет render()
     // не рекомендуется к использованию https://facebook.github.io/react/docs/react-component.html#componentwillmount
@@ -78,20 +77,20 @@ component.displayName
     // Не срабатывает при первом выводе компонента в DOM
     // Отличное место для this.setState()
     componentWillReceiveProps(nextProps)
-    
+
     // Перед получением nextProps или nextState
     // Если вернет true, компонет отрендерится (поведение по-умолчанию)
     // Не срабатывает при первом выводе компонента в DOM
     // Не срабатывает при вызове component.forceUpdate()
     // Если вернет false, то componentWillUpdate() и componentDidUpdate() не будут вызваны
     shouldComponentUpdate(nextProps, nextState)  // => bool
-    
+
     // Перед получением nextProps или nextState
     // Не срабатывает при первом выводе компонента в DOM
     // Вызов this.setState() в данном месте игнорируется
     // Не вызывается, если shouldComponentUpdate() вернул false
     componentWillUpdate(nextProps, nextState)
-    
+
     // Сразу после обновления
     // Не срабатывает при первом выводе компонента в DOM
     // Хорошее место для сетевых запросов
@@ -106,6 +105,23 @@ component.displayName
     // !!! Также важно очистить DOM-элементы, которые были созданы в componentDidMount()
     componentWillUnmount()
 }
+
+
+
+// <<< КОНТЕКСТ >>>
+
+// Должен вернуть объект. Свойства данного объекта
+// будут доступны как this.context у дочерних компонентов.
+// Этим компонентом оборачивают детей и рендерят this.props.children
+parentComponent.getChildContext() // => object
+
+// Обязательно нужно указать.
+// Задает типы свойств контекста
+ParentComponent.childContextTypes
+
+// Обязательно нужно указать.
+// Задает типы свойств получаемого контекста
+ChildComponent.contextTypes
 
 
 
@@ -197,7 +213,7 @@ PropTypes.string // опциональная строка
 PropTypes.string.isRequired // обазательная строка
 
 // Пользовательский валидатор
-// React позволяет определить пользовательскую функцию- валидатор для ситуаций когда 
+// React позволяет определить пользовательскую функцию- валидатор для ситуаций когда
 // встроенные валидаторы не подходят.Такая функция приминает три аргумента:
 // 1. Свойства отправленные компоненту
 // 2. Название проверяемого свойства
