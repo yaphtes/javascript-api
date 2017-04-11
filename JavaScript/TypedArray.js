@@ -17,12 +17,6 @@ let int32View = new Int32Array(buffer);
 
 
 
-/*** <<< DataView >>> ***/
-
-// TODO:
-
-
-
 /*** <<< Buffer >>> ***/
 
 // создает участок памяти длной в byteLength байт (byteLength * 8 бит)
@@ -30,7 +24,45 @@ let buffer = new ArrayBuffer(byteLength)
 
 
 
-/*** <<< Представления бафферов (последовательностей) >>> ***/
+/*** <<< DataView >>> ***/
+// Представление DataView для ArrayBuffer обеспечивает низкоуровневый интерфейс для чтения и записи множественных
+// типов чисел в ArrayBuffer независимо от принадлежности к платформе
+
+// Экземпляр DataView (view, наложенный на buffer) с битовым смещением byteOffset, длиной byteLength
+new DataView(buffer, byteOffset?: number, byteLength?: number)
+
+// ArrayBuffer, на который ссылается DataView
+DataView.prototype.buffer
+
+// Количество байт ArrayBuffer
+DataView.prototype.byteLength
+
+// Смещение байт в DataView (задется, при new DataView)
+DataView.prototype.byteOffset
+
+// Геттеры
+DataView.prototype.getFloat32()
+DataView.prototype.getFloat64()
+DataView.prototype.getInt16()
+DataView.prototype.getInt32()
+DataView.prototype.getInt8()
+DataView.prototype.getUint16()
+DataView.prototype.getUint32()
+DataView.prototype.getUint8()
+
+// Сеттеры
+DataView.prototype.setFloat32()
+DataView.prototype.setFloat64()
+DataView.prototype.setInt16()
+DataView.prototype.setInt32()
+DataView.prototype.setInt8()
+DataView.prototype.setUint16()
+DataView.prototype.setUint32()
+DataView.prototype.setUint8()
+
+
+
+/*** <<< Представления для ArrayBuffer (последовательностей) >>> ***/
 
 // Варианты использования представлений, в примерах определим его как [constructor]
 {
@@ -96,4 +128,6 @@ let buffer = new ArrayBuffer(byteLength)
     // сравнения
     TypedArray.prototype.sort(compare ?: func)
 
+    // Отсутствуют методы которые изменяют массив, например push() и pull(). Для изменения
+    // следует использовать низкоуровневое API DataView
 }
