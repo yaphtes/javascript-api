@@ -1,30 +1,46 @@
 ## Руководство по JavaScript
 #### Базовый JavaScript
-* Свойства и методы прототипов
-	* `Number.prototype`
-	* `String.prototype`
-	* `Object.prototype`
-	* `Array.prototype`
-	* `Function.prototype`
+* `Window или Global`
+* `Number`
+* `String`
+* `RegExp`
+* `Object (и descriptors)`
+* `Array`
+* `Function`
+* `Promise`
+* `AsyncFunction`
+* `JSON`
+* `Math`
+* `Date`
+* `Set`
+* `WeakSet`
+* `Map`
+* `WeakMap`
+* `Generator`
+* `Symbol[itarator]() { ... }`
+* `TypedArray`
 
-
-* Статические свойства и методы
-	* `Number`
-	* `String`
-	* `Object`
-	* `Array`
-	* `Function`
-
-#### Окружения
-##### Браузер
-* Свойства и методы прототипов
-	* `Node.prototype`
+##### DOM
+* `Document`
+* `Node.prototype`
 	* `Element.prototype`
+		* `HTMLElement.prototype`
+		* `SVGElement.prototype`
 
+##### BOM
+* `GlobalFetch`
+* `EventSource`
+* `WebSocket`
+* `XMLHttpRequest`
 
-* Статические свойства и методы
-	* `Window`
-	* `Document`
+#### Node.js
+* Глобальные объекты
+	* `process`
+	* `Buffer`
+	* `StringDecoder`
 
-##### Node.js
-* `Скоро`
+* Модули
+	* `File System`
+	* `EventEmitter`
+	* `StringDecoder`
+	* `util`
