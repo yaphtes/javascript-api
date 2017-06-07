@@ -6,23 +6,23 @@
     // Map – коллекция для хранения записей вида ключ:значение.
 
 
-    let map = new Map(iterable?: [?]);
+    let map = new Map(iterable?)
 
     // установить значение в map,
     // данный метод можно чейнить
-    map.set(key: ?, value: ?)
+    map.set(key, value)
 
     // прочитать значение из map
-    map.get(key: ?)  // => ?
+    map.get(key)  // => ?
 
     // количество записей в map
     map.size  // => number
 
     // проверяет наличие записи
-    map.has(key: ?)  // => boolean
+    map.has(key)  // => boolean
 
     // удаляет запись
-    map.delete(key: ?)  // => boolean
+    map.delete(key)  // => boolean
 
     // очищает map
     map.clear()
@@ -39,26 +39,27 @@
         map.entries()
 
         // Выполняет переданную функцию единожды для каждой пары ключ/значение объекта Map в порядке их вставки.
-        map.forEach(callback: fn(value: ?, key: ?, map: Map), thisArg?: ?)
+        map.forEach(cb, thisArg?)
+        // Сигнатура cb: (value, key, map) => { ... }
     }
 }
 
 
 {  // Set
-    // Set – коллекция для хранения множества значений, причём каждое значение может встречаться лишь один раз.
+    // Set – коллекция для хранения множества значений, причём каждое значение может встречаться лишь один раз
 
 
-    let set = new Set(iterable?: [?])
+    let set = new Set(iterable)
 
     // добавляет значение в коллекцию,
     // метод можно чейнить
-    set.add(value: ?)
+    set.add(value)
 
     // удаляет значение из коллекций
-    set.delete(value: ?)  // => boolean
+    set.delete(value)  // => boolean
 
     // проверяет наличие значения
-    set.has(value: ?)  // => boolean
+    set.has(value)  // => boolean
 
     // очищает set
     set.clear()
@@ -66,8 +67,9 @@
     { // итерация
 
         // Выполняет переданную функцию единожды для каждого значения объекта Set в порядке их вставки.
+        set.forEach(cb, thisArg?)
+        // Сигнатура cb: (value1, value2, set)
         // value1 и value2 совпадают - это сделано для совместимости с Map
-        set.forEach(callback: fn(value: ?, value2: ?, set: Set), thisArg?: ?)
     }
 }
 
@@ -80,34 +82,34 @@
     // где-то в другом месте кода, а здесь мы хотим хранить для них «вспомогательные» данные, существующие лишь пока жив объект.
 
 
-    let weakpam = new WeakMap(iterable?: [?]);
-    let weakset = new WeakSet(iterable?: [?]);
+    let weakmap = new WeakMap(iterable)
+    let weakset = new WeakSet(iterable)
 
     {  // weakmap
 
         // добавляет новую запись
-        weakpam.set(key: ?, value: ?)
+        weakmap.set(key, value)
 
         // удаляет запись
-        weakpam.delete(key: ?)
+        weakmap.delete(key)
 
         // читает запись
-        weakpam.get(key: ?)
+        weakmap.get(key)
 
         // проверяет наличие записи
-        weakpam.has(key: ?)
+        weakmap.has(key)
     }
 
     {  // weakset
 
         // добавляет запись
-        weakset.add(value: ?)
+        weakset.add(value)
 
         // проверяет наличие записи
-        weakset.has(value: ?)
+        weakset.has(value)
 
         // удаляет запись
-        weakset.delete(value: ?)
+        weakset.delete(value)
     }
 
 }

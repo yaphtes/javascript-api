@@ -1,19 +1,21 @@
-let eventSource = new EventSource(url: string, options?: object);
+let eventSource = new EventSource(url, options);
 options = {
 	withCredentials: true
+	// e.t.c.
 }; // -> кроссдоменные запросы
 // при кроссдоменных запросах, будет свойствое event.origin объекта
 // события, которое отображает адрес источника, откуда пришли данные
 
-
+// Пример:
 eventSource.onmessage = function(event) {
 	console.log('Пришло сообщение: ' + event.data);
 };
 
+
 {  // события eventSource
 
-	open // При установлении соединения.
-	message // При сообщении, данные – в event.data.
+	open // При установлении соединения
+	message // При сообщении, данные – в event.data
 	error // При ошибке, в том числе – закрытии соединения по инициативе сервера.
 	readyState // статус соединения {
 		0 // в процессе (пере-)соединения
@@ -37,6 +39,7 @@ eventSource.onmessage = function(event) {
 	// Параметры, переданные при создании объекта. Менять их нельзя.
 	event.url
 	event.withCredentials
+	// e.t.c.
 }
 
 {  // Методы

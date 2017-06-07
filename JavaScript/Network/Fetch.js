@@ -8,9 +8,7 @@
     // credentials – одно из: «omit», «same - origin», «include», указывает, пересылать ли куки и заголовки авторизации вместе с запросом.
     // cache – одно из «default», «no - store», «reload», «no - cache», «force - cache», «only -if-cached», указывает, как кешировать запрос.
     // redirect – можно поставить «follow» для обычного поведения при коде 30x (следовать редиректу) или «error» для интерпретации редиректа как ошибки.
-let promise = fetch(url: string, options?: object);
-
-
+let promise = fetch(url, options)
 
 
 
@@ -18,11 +16,11 @@ let promise = fetch(url: string, options?: object);
 fetch('/users')
     .then(response => response.json())
     .then(json => console.log('Parsed json', json))
-    .catch(err => console.log('Parsed error', err));
+    .catch(err => console.log('Parsed error', err))
 
 
 
-// Объект response кроме доступа к заголовкам headers, статусу statusи некоторым
+// Объект response кроме доступа к заголовкам headers, статусу status и некоторым
 // другим полям ответа, даёт возможность прочитать его тело, в желаемом формате.
 resoponse.arrayBuffer()
 resoponse.blob()

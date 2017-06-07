@@ -1,4 +1,4 @@
-let upload = (new XMLHttpRequest()).upload;  // => object
+let upload = new XMLHttpRequest().upload;  // => object
 
 {  // События upload
 
@@ -17,3 +17,8 @@ let upload = (new XMLHttpRequest()).upload;  // => object
 		event.lengthComputable  // если true, то известно полное количество байт для пересылки, и оно хранится в свойстве total
 	}
 }
+
+
+// Подробноее:
+// https://learn.javascript.ru/xhr-onprogress - индикация прогресса
+// https://learn.javascript.ru/xhr-resume - возобнавляемая закачка

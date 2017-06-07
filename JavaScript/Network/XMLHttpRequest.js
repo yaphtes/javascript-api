@@ -15,10 +15,11 @@ loadend // запрос был завершен (успешно или неус�
 timeout // истекло врема асинхронного запроса
 
 // Конфигурация запроса
-xhr.open(method: string, url: string, async ? : bool, user ? : string, password ? : string)
+xhr.open(method, url, async?, user?, password?)
 
 // Отослать запрос
-xhr.send(data ? : string)
+// data - строка (всегда ли?)
+xhr.send(data)
 
 // Прервать запрос
 xhr.abort()
@@ -41,10 +42,10 @@ xhr.responseText // => string
 xhr.readyState // => number
 
 // Устанавливает заголовок (поставленный заголовок нельзя снять, повторный вызов лишь добавит информацию к заголовку)
-xhr.setRequestHeader(header: string, value: string)
+xhr.setRequestHeader(header, value)
 
 // Возвращает значение заголовка, кроме Set-Cookie и Set-Cookie2
-xhr.getResponseHeader(header: string) // => string
+xhr.getResponseHeader(header) // => string
 
 // Возвращает все заголовки ответа, кроме Set-Cookie и Set-Cookie2
 xhr.getAllResponseHeaders() // => string
@@ -54,15 +55,9 @@ xhr.timeout // => number
 
 
 
-// Полезные заголовки
-xhr.setRequestHeader('Content-Type', 'x-www-form-urlencoded');
-xhr.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
-
-
 // Шаблон типичного запроса (предварительно нужно позаботиться о наполнении data)
 var xhr = new XMLHttpRequest();
 
-xhr.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
 xhr.send(data);
 
 xhr.onreadystatechange = function() {

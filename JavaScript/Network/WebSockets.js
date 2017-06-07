@@ -1,4 +1,5 @@
-let socket = new WebSocket(url: string, protocol: string | [string])
+// protocol - строка или массив строк
+let socket = new WebSocket(url, protocol)
 
 {  // события объекта socket
 
@@ -24,4 +25,4 @@ let socket = new WebSocket(url: string, protocol: string | [string])
 }
 
 // Отослать любые данные
-socket.send(data: ?)
+socket.send(data)
