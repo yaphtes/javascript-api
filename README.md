@@ -32,6 +32,10 @@
 * `EventSource`
 * `WebSocket`
 * `XMLHttpRequest`
+* `URL`
+* `Request`
+* `Headers`
+
 
 #### Node.js
 * Глобальные объекты
