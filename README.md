@@ -41,7 +41,6 @@
 * Глобальные объекты
 	* `process`
 	* `Buffer`
-	* `StringDecoder`
 
 * Модули
 	* `File System`
