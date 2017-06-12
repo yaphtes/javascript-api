@@ -6,5 +6,8 @@ path.basename(somepath)  // => string
 // Составляет путь из строк
 path.join(...paths)  // => string
 
+// Пытается составить абсолютный
+path.resolve(...paths)  // => string
+
 // Расширение файла
 path.extname(file)  // => string
