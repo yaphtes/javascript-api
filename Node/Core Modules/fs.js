@@ -22,6 +22,10 @@ fs.appendFile(filename, data, options?, cb)  // => undefined
 // Сигнатура cb: (err) => { ... }
 // Сигнатура options: { encoding: string, mode: number|string, flag: string }
 
+// Проверить наличие файла или дирректории
+fs.stat(path, cb)  // => undefined
+// Сигнатура cb: (err, stats) => { .. }
+
 // Наблюдать за файлом (можно и за деррикторией)
 let watcher = fs.watch(filename, listener?) // => FSWatcher
 // Сигнатура cb: (event, filename) => { .. }
@@ -30,13 +34,24 @@ let watcher = fs.watch(filename, listener?) // => FSWatcher
 watcher.on('error', cb)
 // Сигнатура cb: (code, signal) => { ... }
 
+{  // Потоки
 
-// Читамый поток
-let input = fs.createReadStream(path, options)  // => ReadStream
+    // Читамый поток
+    let input = fs.createReadStream(path, options)  // => ReadStream
 
-// Записываемый пеоток
-let output = fs.createWriteStream(path, options)  // => WriteStream
+    // Записываемый пеоток
+    let output = fs.createWriteStream(path, options)  // => WriteStream
 
-// Duplex поток
-input.pipe(output, options)  // Duplex
+    // Duplex поток
+    input.pipe(output, options)  // Duplex
+
+    {  // События читаемого потока
+        input.on('open');
+        input.on('close');
+
+        // унаследованные
+        input.on('data');
+        input.on('error');
+    }
+}
 
