@@ -380,11 +380,18 @@ elem.dispatchEvent(event: Event)
 }
 
 { // Загрузки
-	DOMContentLoaded // можно повесить только через метод addEventListener()
-	load // можно повесить как на window, так и на elem
-	beforeunload
-	unload
-	error // можно повесить как на window, так и на elem, но на iframe не ставится
+	window.DOMContentLoaded // можно повесить только через метод addEventListener()
+	window.load // можно повесить как на window, так и на elem
+	window.beforeunload
+	window.unload
+	window.error // можно повесить как на window, так и на elem, но на iframe не ставится
+
+	// состояния загрузки документа
+	document.readyState == value
+	value:
+		'loading' // - Страница все еще загружается
+		'interactive' // - Страница уже загружена и DOM дерево построено, но дополнительные ресурсы, такие как изображения и iframe, все еще загружаются. Это состояние указывает, что событие DOMContentLoaded уже вызвано
+		'complete' // - Страница и все дополнительные ресурсы уже загружены. Это состояние указывает, что событие load уже вызвано
 }
 
 { // Формы, элементы(с tabindex)
