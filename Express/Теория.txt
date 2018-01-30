@@ -79,5 +79,5 @@
 //
 // Формат данных для тела запроса POST и GET
 application/x-www-form-urlencoded  // закодированные пары 'имя'='значение'&'имя'='значение' (такой же как в обычном GET)
-multipart/form-data  // если требуется поддержка загрузки файлов на сервер
-application/json  // для AJAX
+multipart/form-data; boundary=----WebKitFormBoundaryEqbVGfXBOYpxt362  // если требуется поддержка загрузки файлов на сервер (проще не указывать, fetch сам поставит и сгенерирует разделитель)
+application/json  // для JSON коммуникаций (не забываем про JSON.stringify())
