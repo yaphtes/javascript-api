@@ -70,5 +70,3 @@
         self.preventDefault();
     };    
 }
-
-// TODO: shared workers: https://developer.mozilla.org/ru/docs/DOM/Using_web_workers
