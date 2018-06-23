@@ -1,5 +1,6 @@
 // Данный шаблон необходим позволяет отделить разметку от состояния
 
+
 import React, { Component } from 'react';
 
 function Counter({ count, decrement, increment }) {
