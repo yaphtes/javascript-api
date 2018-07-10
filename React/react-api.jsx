@@ -110,18 +110,25 @@ component.displayName
 
 // <<< КОНТЕКСТ >>>
 
-// Должен вернуть объект. Свойства данного объекта
-// будут доступны как this.context у дочерних компонентов.
-// Этим компонентом оборачивают детей и рендерят this.props.children
-parentComponent.getChildContext() // => object
+// <Provider value={{ foo: 'bar' }} /> - провайдер данных
+// <Consumer>{value => <h1>{value.foo}</h1>}</Consumer> - использует render-props паттерн,
+// Consumer можно использовать на любом уровне вложенности React-Дерева
+// Значение по-умолчанию в React.createContext() используетрся только, если не найден
+// ни один <Provider /> в зымыкающих (closest) предках.
+const { Provider, Consumer } = React.createContext({ default: 'value '});
 
-// Обязательно нужно указать.
-// Задает типы свойств контекста
-ParentComponent.childContextTypes
 
-// Обязательно нужно указать.
-// Задает типы свойств получаемого контекста
-ChildComponent.contextTypes
+
+// <<< Refs >>>
+
+// Создаёт "ссылку" ref. Может к применяться как к нативным DOM-узлам, так и к инстансам компонентов
+// Пример использования - ниже
+const ref = React.createRef();
+
+// Создает компонет. Метод принимает функцию рендеринга и передает в нее props и указанный ref
+const Instance = React.forwardRef((props, ref) => (
+    <div ref={ref}>{props.data}</div>
+));
 
 
 
