@@ -4,6 +4,8 @@
 git config --global user.name "<username>"
 git config --global user.email <email>
 git config --global core.editor <editor>
+git config --global commit.verbose true - включить git diff --cached перед коммитом
+git config --global grep.patternType perl - включить perl-совместимые регулярки для git
 
 ### Проверка настроек ###
 git config --list
