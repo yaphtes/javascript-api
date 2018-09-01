@@ -6,6 +6,8 @@ git config --global user.email <email>
 git config --global core.editor <editor>
 git config --global commit.verbose true - включить git diff --cached перед коммитом
 git config --global grep.patternType perl - включить perl-совместимые регулярки для git
+git config merge.ff false - отключить слияние перемоткой
+git config branch.<branch>.mergeoptions '--no-ff' - отключить слияние перемоткой для конкретной ветки
 
 ### Проверка настроек ###
 git config --list
@@ -36,3 +38,10 @@ git rm <path> - удалить файл\папку и добавить это и
 
 ###### Переименование и перемещение файлов ######
 git mv <old-path> <new-path> - переименовать файл и записать это изменение в индекс, также используется для перемещения
+
+
+
+##### Архивация #####
+
+git stash - поместить все незакоммиченные изменения в специальную архивированную структуру данных git
+git stash pop - добавить данные из git stash
