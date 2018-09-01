@@ -1,0 +1,19 @@
+##### Игнорирование файлов .gitignore #####
+
+*.a пропускать файлы, заканчивающиеся на .a
+!lib.a отслеживать файлы lib.a, несмотря на пропуск файлов на .a
+*.py[co] игнорировать *.pyc или *.pyo, но не *.pyco
+migrate-201[5-7]* игнорировать migrate-2015.cls, migrate-2016.bak, migrate-2017-lol.txt
+*.py? игнорировать *.pyc, *.pyo, но не .py
+
+(ЗАМЕЧАНИЕ: если где-то, кроме как в конце есть "/", то путь отсчитывается от корня)
+build/ игнорировать папки build/ на любом уровне вложенности
+/build/ игнорировать папку build/ в корне
+secret/key то же самое, что и /secret/key
+doc/*.html то же самое, что и /doc/*.html
+**/secret/key игнорировать key на любом уровне вложенности
+users/*/private например users/john/private или users/alex/private
+users/**/private например users/john/private или users/john/smith/private
+
+/install/**
+!install/packages.json игнорировать все файлы в /install/, но не файл packages.json. Если вместо /install/** написать /install/, то так не сработает, гит тупо заигнорит папку, а не файлы в ней
