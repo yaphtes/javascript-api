@@ -1,6 +1,6 @@
 ###### Настройка ######
 
-### Первоначальная настройка ###
+### Настройка ###
 git config --global user.name "<username>"
 git config --global user.email <email>
 git config --global core.editor <editor>
@@ -8,6 +8,9 @@ git config --global commit.verbose true - включить git diff --cached п�
 git config --global grep.patternType perl - включить perl-совместимые регулярки для git
 git config merge.ff false - отключить слияние перемоткой
 git config branch.<branch>.mergeoptions '--no-ff' - отключить слияние перемоткой для конкретной ветки
+git config rebase.missingCommitsCheck warn|error - выдавать предупреждения|ошибки при удалении строк в git rebase -i (используй drop!)
+git config rebase.autoSquash true - включить коммиты-заплатки при интерактивном перебазировании
+git config rerere.enabled true - включить авторазрешение повторных конфликтов (https://www.youtube.com/watch?v=cuk3LQAG2PE&index=63&list=PLDyvV36pndZHkDRik6kKF6gSb0N0W995h)
 
 ### Проверка настроек ###
 git config --list
